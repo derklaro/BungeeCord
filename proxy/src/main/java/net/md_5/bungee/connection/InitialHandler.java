@@ -529,9 +529,10 @@ public class InitialHandler extends PacketHandler implements PendingConnection
                             {
                                 server = AbstractReconnectHandler.getForcedHost( InitialHandler.this );
                             }
-                            if ( server == null )
-                            {
-                                server = bungee.getServerInfo( listener.getDefaultServer() );
+
+                            if (server == null) {
+                                userCon.disconnect( bungee.getTranslation( "fallback_kick", "No fallback server defined" ) );
+                                return;
                             }
 
                             userCon.connect( server, null, true, ServerConnectEvent.Reason.JOIN_PROXY );

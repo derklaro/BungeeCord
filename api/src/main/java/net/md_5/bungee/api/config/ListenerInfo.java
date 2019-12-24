@@ -87,7 +87,7 @@ public class ListenerInfo
     @Deprecated
     public String getDefaultServer()
     {
-        return serverPriority.get( 0 );
+        return serverPriority.isEmpty() ? null : serverPriority.get( 0 );
     }
 
     /**
